@@ -3,7 +3,12 @@ version: '3'
 services:
   jupyter:
     image: jupyter/all-spark-notebook:python-3.10
+    user: 1000:1000
     ports:
       - 8888:8888
     volumes:
       - ./:/home/jovyan/work
+      # - settings:/home/jovyan/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/
+
+volumes:
+  settings:
